@@ -27,3 +27,8 @@ ADMINS = ['ody12@nate.com']
 
 # pagination
 POSTS_PER_PAGE = 3
+
+# whoosh
+WHOOSH_BASE = os.path.join(basedir, 'search.db')
+
+MAX_SEARCH_RESULT = 50
