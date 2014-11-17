@@ -40,6 +40,15 @@ if not app.debug:
 from flask.ext.mail import Mail
 mail = Mail(app)
 
+from flask.ext.babel import Babel
+babel = Babel(app)
+
+from flask.ext.babel import gettext
+lm.login_message = gettext('Please log in to access this page')
+
+from flask.ext.babel import lazy_gettext
+lm.login_message = lazy_gettext('Please log in to access this page.')
+
 
 from app import views, models
 

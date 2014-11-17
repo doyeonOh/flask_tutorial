@@ -1,5 +1,6 @@
 from app import db
 from hashlib import md5
+import re
 
 from app import app
 
@@ -31,9 +32,14 @@ class User(db.Model):
                                backref=db.backref('followers', lazy='dynamic'),
                                lazy='dynamic')
 
+    @staticmethod
+    def make_valid_nickname(nickname):
+        return re.sub('[^a-zA-Z0-9_\.]', '', nickname)
+
 
     def is_authenticated(self):
         return True
+
 
     def is_active(self):
         return True
